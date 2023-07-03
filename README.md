@@ -4,37 +4,41 @@ The package doesn't require any database migrations because it's built on the [L
 
 
 ## Requirements
-Laravel Actor is Online requires PHP 8+ and Laravel x+.
+Laravel Actor is Online requires PHP 8+ and Laravel 6+.
 
 ## Installation
 You can install the package via composer:
 
 ```bash
-composer require djl997/...
+composer require djl997/laravel-actor-is-active
 ```
 
 Prepare your actor model:
 ```php
+namespace App\Models;
+
 use Djl997\LaravelActorIsActive\Traits\IsOnlineTrait;
 
 class Actor {
 
     use IsOnlineTrait;
 
-    //..
+    // ..
 
 }
 ```
 
 
 ## Usage
-
+Set online status
 - [Route Middleware (recommended for Auth)](#route-middleware-recommended-for-authenticables)
-- [Manually]()
+- [Manually](#manually)
+- [Available methods]()
+
 
 
 ### Route Middleware (recommended for Authenticables)
-...
+
 
 ```php
 protected $middlewareGroups = [
@@ -48,7 +52,18 @@ protected $middlewareGroups = [
 ### Manually
 
 ```php
+$user = User::find(1);
 
+$user->touchOnline();
+```
 
+### Available Methods
+```php
+$user = User::find(1);
+
+$user->isOnline(); // returns true if user is online
+$user->wasOnlineRecently(); // returns true if user was inline x minutes ago (by default 5-30 minutes, customizable via config)
+$user->lastOnlineAt(); // returns Carbon object of last online timestamp
+$user->getCacheActorOnlineKey(); // get the online cache key
 
 ```
