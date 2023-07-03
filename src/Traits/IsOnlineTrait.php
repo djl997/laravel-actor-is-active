@@ -59,7 +59,7 @@ trait IsOnlineTrait
      * 
      * @params  int  $seconds
      */
-    public function touchOnline(int $seconds = 1800): Cache  // TODO: configurable default minutes
+    public function touchOnline(int $seconds = 1800): bool  // TODO: configurable default minutes
     {
         return Cache::put(
             $this->getCacheActorOnlineKey(),
