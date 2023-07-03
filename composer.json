@@ -16,7 +16,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^8.0",
-        "laravel/framework": "^6.0|^7.0|^8.0|^9.0|^10.0"
+        "laravel/framework": "^6.0|^7.0|^8.0|^9.0|^10.0",
+        "nesbot/carbon": "^2.31"
     },
     "extra": {
         "laravel": {
