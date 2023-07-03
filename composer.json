@@ -1,0 +1,28 @@
+{
+    "name": "djl997/laravel-actor-is-active",
+    "description": "A package to set online status to an actor model (the User in most cases).",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Djl997\\LaravelActorIsActive\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dirk Jan",
+            "email": "dirkjan@q2-software.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.0|^9.0|^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Djl997\\LaravelActorIsActive\\LaravelActorIsActiveServiceProvider"
+            ]
+        }
+    }
+}
