@@ -13,7 +13,7 @@ trait IsOnlineTrait
      */
     protected function getCacheActorOnlineKey()
     {
-        return sprintf('%s-%s', Str::of(get_class($this))->replace('\\', '-')->camel(), $this->id);
+        return sprintf('Djl997LaravelActorIsActive-%s%s', Str::of(get_class($this))->replace('\\', '-')->camel(), $this->id);
     }
 
     /**
