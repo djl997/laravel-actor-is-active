@@ -18,11 +18,14 @@ trait IsOnlineTrait
 
     /**
      * Gets the latest online_at timestamp of actor, returns Carbon object.
+     * If no cache for model is found, return created_at.
+     * If created_at is somehow null or not set, fallback to 1970 (never online)
+     * 
      */
     public function lastOnlineAt(): Carbon
     {
         if (empty($cache = Cache::get($this->getCacheActorOnlineKey()))) {
-            return $this->created_at;
+            return $this->created_at ?? Carbon::create(1970);
         }
 
         return $cache['online_at'];
