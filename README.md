@@ -10,7 +10,7 @@ The package doesn't require any database migrations because it's built on the [L
 
 
 ## Requirements
-Laravel Actor is Online requires PHP 8+ and Laravel 6+.
+Laravel Actor is Online requires PHP 8.2 or higher and Laravel 11+.
 
 ## Installation
 1. You can install the package via composer:
