@@ -4,6 +4,7 @@ namespace Djl997\LaravelActorIsActive\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 
 trait IsOnlineTrait
@@ -24,11 +25,14 @@ trait IsOnlineTrait
      */
     public function lastOnlineAt(): Carbon
     {
-        if (empty($cache = Cache::get($this->getCacheActorOnlineKey()))) {
+        $onlineAt = Cache::get($this->getCacheActorOnlineKey())['online_at'] ?? null;
+
+        // Entries written before 0.2.1 hold a Carbon object, which Laravel 13 may refuse to unserialize.
+        if (! is_string($onlineAt) && ! $onlineAt instanceof \DateTimeInterface) {
             return $this->created_at ?? Carbon::create(1970);
         }
 
-        return $cache['online_at'];
+        return Date::parse($onlineAt);
     }
     
     /**
@@ -67,7 +71,7 @@ trait IsOnlineTrait
         return Cache::put(
             $this->getCacheActorOnlineKey(),
             [
-                'online_at' => now()
+                'online_at' => now()->toIso8601String()
             ],
             $seconds
         );
