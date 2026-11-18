@@ -4,13 +4,15 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/djl997/laravel-actor-is-active.svg?style=flat-square)](https://packagist.org/packages/djl997/laravel-actor-is-active)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
+> **Archived:** this package is no longer maintained.
+
 This package provides a simple and easy way to check if an _Actor_ in your application is active or was active recently. In most cases _Actor_ will be your app user, but in some cases it can be some logic like a bot, variable Cronjob, Queue or another external proces you want to monitor.
 
 The package doesn't require any database migrations because it's built on the [Laravel Cache Driver](https://laravel.com/docs/cache).
 
 
 ## Requirements
-Laravel Actor is Online requires PHP 8.2 or higher and Laravel 11+.
+Laravel Actor is Online requires PHP 8.2 or higher and Laravel 12.71+ or 13.40+.
 
 ## Installation
 1. You can install the package via composer:
